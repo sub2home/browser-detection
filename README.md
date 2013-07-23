@@ -1,7 +1,7 @@
 jquery-browser-detection [![Build Status](https://travis-ci.org/schickling/jquery-browser-detection.png)](https://travis-ci.org/schickling/jquery-browser-detection)
 ========================
 
-Adds special classes to the `<html>` tag according to  OS, browser, browser version and browser screen resolution.
+Adds special classes to the `<html>` tag according to  OS, browser, version and screen resolution.
 
 ## Installation
 ```
