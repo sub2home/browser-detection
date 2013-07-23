@@ -7,3 +7,5 @@ node_js:
   - 0.10
 before_script:
   - npm install -g grunt-cli
+  - curl -L https://github.com/n1k0/casperjs/archive/1.0.3.tar.gz | tar xz
+  - PATH=./casperjs-1.0.3/bin:$PATH
