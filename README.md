@@ -45,4 +45,5 @@ if ($('html').hasClass('safari')) {
  * mobile
  * resizing
  * screen size 
+* Browser detection not by User Agent
 * Minification with grunt
