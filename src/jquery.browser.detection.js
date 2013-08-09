@@ -6,16 +6,18 @@
 
 		var data = {}, browser, version, os;
 
-		prepare();
-		defaultBehavior();
+		parseUserAgent();
 
 		// exception rules
 		renameOsx();
+		cutSafariVersion();
+
+		prepareData();
 
 		return data;
 
 
-		function prepare() {
+		function parseUserAgent() {
 			var userAgent = navigator.userAgent.toLowerCase(),
 				browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent);
 
@@ -24,15 +26,21 @@
 			os = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent)[1];
 		}
 
-		function defaultBehavior() {
+		function prepareData() {
 			data.browser = browser;
 			data.version = parseInt(version, 10);
 			data.os = os;
 		}
 
 		function renameOsx() {
-			if (data.os === 'mac') {
-				data.os = 'osx';
+			if (os === 'mac') {
+				os = 'osx';
+			}
+		}
+
+		function cutSafariVersion() {
+			if (os === 'safari') {
+				version = version.substring(0, 1);
 			}
 		}
 
