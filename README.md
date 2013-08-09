@@ -1,7 +1,7 @@
 jquery-browser-detection [![Build Status](https://travis-ci.org/schickling/jquery-browser-detection.png)](https://travis-ci.org/schickling/jquery-browser-detection)
 ========================
 
-Lightweight plugin to get browser, version, OS and screen resoluion.
+Lightweight plugin to get information about browser, version and OS.
 
 ## Installation
 ```
