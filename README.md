@@ -24,7 +24,24 @@ console.log(data.os); // osx
 var d = $.browserDetection(),
     classes = d.browser + ' ' + d.browser + '-' + d.version + ' ' + d.os;
 
-$('body').addClass(classes);
+$('html').addClass(classes);
+```
+
+CSS:
+```css
+html{
+    background: white;
+}
+
+/* Internet Explorer 7 specific */
+html.ie-7{
+    background: red;
+}
+
+/* Only for OSX users with firefox */
+html.osx.firefox{
+    background: blue;
+}
 ```
 
 ## Todo
