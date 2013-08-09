@@ -20,6 +20,8 @@ console.log(data.os); // osx
 ```
 
 #### Add CSS classes to `html` tag
+
+Javascript:
 ```js
 var d = $.browserDetection(),
     classes = d.browser + ' ' + d.browser + '-' + d.version + ' ' + d.os;
