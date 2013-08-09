@@ -10,6 +10,7 @@ bower install jquery-browser-detection --save
 
 ## Usage
 
+#### Get Data
 ```js
 var data = $.browserDetection();
 
@@ -18,13 +19,18 @@ console.log(data.version); // 29
 console.log(data.os); // osx
 ```
 
+#### Add CSS classes to `html` tag
+```js
+var d = $.browserDetection(),
+    classes = d.browser + ' ' + d.browser + '-' + d.version + ' ' + d.os;
+
+$('body').addClass(classes);
+```
+
 ## Todo
-* Tests for...
+* More tests for...
  * osx
  * win
  * linux
  * mobile
- * resizing
- * screen size 
-* Browser detection not by User Agent
 * Minification with grunt
