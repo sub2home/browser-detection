@@ -23,10 +23,9 @@ console.log(data.os); // osx
 
 Javascript:
 ```js
-var d = $.browserDetection(),
-    classes = d.browser + ' ' + d.browser + '-' + d.version + ' ' + d.os;
-
-$('html').addClass(classes);
+$.browserDetection({
+    addClasses: true
+});
 ```
 
 CSS:

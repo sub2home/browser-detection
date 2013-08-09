@@ -2,7 +2,7 @@
 
 	"use strict";
 
-	$.browserDetection = function () {
+	$.browserDetection = function (options) {
 
 		var data = {}, browser, version, os;
 
@@ -13,6 +13,7 @@
 		cutSafariVersion();
 
 		prepareData();
+		processOptions();
 
 		return data;
 
@@ -41,6 +42,14 @@
 		function cutSafariVersion() {
 			if (os === 'safari') {
 				version = version.substring(0, 1);
+			}
+		}
+
+		function processOptions() {
+			options = options || {};
+
+			if (options.addClasses) {
+				$('html').addClass(data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version);
 			}
 		}
 

@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 			server: {
 				options: {
 					port: 8888,
-					base: './test/resources/'
+					base: '.'
 				}
 			}
 		},

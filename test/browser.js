@@ -65,7 +65,7 @@ testCases.forEach(function (testCase) {
 	casper.then(function () {
 		casper.userAgent(testCase.userAgent);
 	});
-	casper.thenOpen('http://localhost:8888/test/resources/index.html', function () {
+	casper.thenOpen('http://localhost:8888/test/resources/simple.html', function () {
 
 		casper.test.comment(testCase.userAgent);
 
