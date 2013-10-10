@@ -4,14 +4,14 @@ jquery-browser-detection [![Build Status](https://travis-ci.org/schickling/jquer
 Lightweight plugin to get information about browser, version and OS.
 
 ## Installation
-```
-bower install jquery-browser-detection --save
+```sh
+$ bower install jquery-browser-detection --save
 ```
 
 ## Usage
 
 #### Get Data
-```js
+```javascript
 var data = $.browserDetection();
 
 console.log(data.browser); // chrome
@@ -22,7 +22,7 @@ console.log(data.os); // osx
 #### Add CSS classes to `html` tag
 
 Javascript:
-```js
+```javascript
 $.browserDetection({
     addClasses: true
 });
