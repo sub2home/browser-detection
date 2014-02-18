@@ -1,64 +1,64 @@
-(function ($) {
+(function($) {
 
-	"use strict";
+  "use strict";
 
-	$.browserDetection = function (options) {
+  $.browserDetection = function(options) {
 
-		var data = {}, browser, version, os;
+    var data = {}, browser, version, os;
 
-		parseUserAgent();
+    parseUserAgent();
 
-		// exception rules
-		renameOsx();
-		cutSafariVersion();
+    // exception rules
+    renameOsx();
+    cutSafariVersion();
 
-		prepareData();
-		processOptions();
+    prepareData();
+    processOptions();
 
-		return data;
+    return data;
 
 
-		function parseUserAgent() {
-			var userAgent = navigator.userAgent.toLowerCase(),
-				browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent);
-			
-			if (!!userAgent.match(/trident\/7\./)) {
-                		browser = "ie",
-                		version = "11";
-            		} else {
-                		browser = browserParts[1],
-                		version = browserParts[2];
-            		}
-			
-			os = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent)[1];
-		}
+    function parseUserAgent() {
+      var userAgent = navigator.userAgent.toLowerCase(),
+        browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent);
 
-		function prepareData() {
-			data.browser = browser;
-			data.version = parseInt(version, 10);
-			data.os = os;
-		}
+      if ( !! userAgent.match(/trident\/7\./)) {
+        browser = "ie",
+        version = "11";
+      } else {
+        browser = browserParts[1],
+        version = browserParts[2];
+      }
 
-		function renameOsx() {
-			if (os === 'mac') {
-				os = 'osx';
-			}
-		}
+      os = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent)[1];
+    }
 
-		function cutSafariVersion() {
-			if (os === 'safari') {
-				version = version.substring(0, 1);
-			}
-		}
+    function prepareData() {
+      data.browser = browser;
+      data.version = parseInt(version, 10);
+      data.os = os;
+    }
 
-		function processOptions() {
-			options = options || {};
+    function renameOsx() {
+      if (os === 'mac') {
+        os = 'osx';
+      }
+    }
 
-			if (options.addClasses) {
-				$('html').addClass(data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version);
-			}
-		}
+    function cutSafariVersion() {
+      if (os === 'safari') {
+        version = version.substring(0, 1);
+      }
+    }
 
-	};
+    function processOptions() {
+      options = options || {};
+
+      if (options.addClasses) {
+        $('html').addClass(data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version);
+      }
+    }
+
+  };
 
 })(jQuery);
