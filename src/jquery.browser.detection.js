@@ -21,9 +21,15 @@
 		function parseUserAgent() {
 			var userAgent = navigator.userAgent.toLowerCase(),
 				browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent);
-
-			browser = browserParts[1],
-			version = browserParts[2],
+			
+			if (!!userAgent.match(/trident\/7\./)) {
+                		browser = "ie",
+                		version = "11";
+            		} else {
+                		browser = browserParts[1],
+                		version = browserParts[2];
+            		}
+			
 			os = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent)[1];
 		}
 
