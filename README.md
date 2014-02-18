@@ -1,4 +1,4 @@
-jquery-browser-detection [![Build Status](https://travis-ci.org/schickling/jquery-browser-detection.png)](https://travis-ci.org/schickling/jquery-browser-detection)
+jquery-browser-detection [![Build Status](https://travis-ci.org/sub2home/jquery-browser-detection.png?branch=0.2.0)](https://travis-ci.org/sub2home/jquery-browser-detection)
 ========================
 
 Lightweight plugin to get information about browser, version and OS.
