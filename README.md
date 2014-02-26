@@ -1,18 +1,18 @@
-jquery-browser-detection [![Build Status](https://travis-ci.org/sub2home/jquery-browser-detection.png?branch=0.2.0)](https://travis-ci.org/sub2home/jquery-browser-detection)
+browser-detection [![Build Status](https://travis-ci.org/sub2home/browser-detection.png?branch=0.2.0)](https://travis-ci.org/sub2home/browser-detection)
 ========================
 
-Lightweight plugin to get information about browser, version and OS.
+Lightweight package to get information about browser, version and OS.
 
 ## Installation
 ```sh
-$ bower install jquery-browser-detection --save
+$ bower install browserdetection --save
 ```
 
 ## Usage
 
 #### Get Data
 ```javascript
-var data = $.browserDetection();
+var data = browserDetection();
 
 console.log(data.browser); // chrome
 console.log(data.version); // 29
@@ -23,7 +23,7 @@ console.log(data.os); // osx
 
 Javascript:
 ```javascript
-$.browserDetection({
+browserDetection({
     addClasses: true
 });
 ```
