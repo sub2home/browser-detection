@@ -1,8 +1,24 @@
-(function($) {
+(function(name, definition) {
+
+  if (typeof define === 'function') { // AMD
+    define(definition);
+  } else if (typeof module !== 'undefined' && module.exports) { // Node.js
+    module.exports = definition();
+  } else { // Browser
+    var theModule = definition(),
+      global = this,
+      old = global[name];
+    theModule.noConflict = function() {
+      global[name] = old;
+      return theModule;
+    };
+    global[name] = theModule;
+  }
+})('browserDetection', function() {
 
   "use strict";
 
-  $.browserDetection = function(options) {
+  return function(options) {
 
     var data = {}, browser, version, os;
 
@@ -17,14 +33,13 @@
 
     return data;
 
-
     function parseUserAgent() {
       var userAgent = navigator.userAgent.toLowerCase(),
         browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent);
 
       if ( !! userAgent.match(/trident\/7\./)) {
         browser = "ie",
-        version = "11";
+        version = 11;
       } else {
         browser = browserParts[1],
         version = browserParts[2];
@@ -55,10 +70,10 @@
       options = options || {};
 
       if (options.addClasses) {
-        $('html').addClass(data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version);
+        document.body.parentNode.className += ' ' + data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version;
       }
     }
 
   };
 
-})(jQuery);
+});

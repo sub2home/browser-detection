@@ -7,13 +7,12 @@ module.exports = function (grunt) {
 		jshint: {
 			files: [
 				'Gruntfile.js',
-				'src/jquery.browser.detection.js',
+				'src/*.js',
 				'test/*.js',
 			],
 			options: {
 				// options here to override JSHint defaults
 				globals: {
-					jQuery: true,
 					console: true,
 					module: true,
 					document: true
@@ -30,21 +29,32 @@ module.exports = function (grunt) {
 			}
 		},
 
-		casperjs: {
-			files: ['test/*.js']
-		}
+		casper: {
+      test: {
+        options: {
+          test: true
+        },
+        src: ['test/*.js']
+      },
+      test2: {
+        options: {
+          test: true
+        },
+        src: ['test/browser.js']
+      }
+    }
 
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-casperjs');
-
+	grunt.loadNpmTasks('grunt-casper');
+  grunt.loadNpmTasks('grunt-bump');
 
 	grunt.registerTask('test', [
 		'jshint',
-		'connect:server',
-		'casperjs'
+		'connect',
+		'casper'
 	]);
 
 	grunt.registerTask('default', [

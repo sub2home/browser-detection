@@ -1,7 +1,4 @@
 {
-	"name": "jquery-browser-detection",
-	"version": "0.2.0",
-	"dependencies": {
-		"jquery": ">=1.9"
-	}
+	"name": "browser-detection",
+	"version": "0.3.0"
 }
