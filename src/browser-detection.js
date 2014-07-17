@@ -20,7 +20,10 @@
 
   return function(options) {
 
-    var data = {}, browser, version, os;
+    var data = {};
+    var browser = null;
+    var version = null;
+    var os = null;
 
     parseUserAgent();
 
@@ -35,22 +38,25 @@
 
     function parseUserAgent() {
       var userAgent = navigator.userAgent.toLowerCase(),
-        browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent);
+        browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent),
+        osParts = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent);
 
       if ( !! userAgent.match(/trident\/7\./)) {
-        browser = "ie",
+        browser = "ie";
         version = 11;
-      } else {
-        browser = browserParts[1],
+      } else if (browserParts && browserParts.length > 2) {
+        browser = browserParts[1];
         version = browserParts[2];
       }
 
-      os = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent)[1];
+      if (osParts && osParts.length > 1) {
+        os = osParts[1];
+      }
     }
 
     function prepareData() {
       data.browser = browser;
-      data.version = parseInt(version, 10);
+      data.version = parseInt(version, 10) || null;
       data.os = os;
     }
 
@@ -69,7 +75,7 @@
     function processOptions() {
       options = options || {};
 
-      if (options.addClasses) {
+      if (options.addClasses && data.os && data.browser && data.version) {
         document.body.parentNode.className += ' ' + data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version;
       }
     }

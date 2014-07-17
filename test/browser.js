@@ -48,6 +48,11 @@ var testCases = [
     expectedBrowser: 'ie',
     expectedVersion: 11,
     expectedOs: 'win',
+  }, {
+    userAgent: 'invalid',
+    expectedBrowser: '', // actually null, but '' because of a phantomjs bug
+    expectedVersion: '', // ...
+    expectedOs: '', // ...
   },
 ];
 
@@ -60,10 +65,6 @@ testCases.forEach(function(testCase) {
   casper.thenOpen('http://localhost:8888/test/resources/index.html', function() {
 
     casper.test.comment(testCase.userAgent);
-
-    this.evaluate(function() {
-      browserDetection();
-    });
 
     var data = this.getData();
     this.test.assertEqual(data.browser, testCase.expectedBrowser);
