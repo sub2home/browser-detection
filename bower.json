@@ -1,5 +1,5 @@
 {
 	"name": "browser-detection",
-	"version": "0.3.1"
+	"version": "0.3.1",
 	"main": "src/browser-detection.js"
 }
