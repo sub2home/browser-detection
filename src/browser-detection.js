@@ -1,7 +1,7 @@
 (function(name, definition) {
 
-  if (typeof define === 'function') { // AMD
-    define(definition);
+  if (typeof define === 'function' && define.amd) { // AMD
+    define(name,[],definition);
   } else if (typeof module !== 'undefined' && module.exports) { // Node.js
     module.exports = definition();
   } else { // Browser
