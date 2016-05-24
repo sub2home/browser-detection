@@ -61,11 +61,11 @@
       data.browser = browser;
       data.version = parseInt(version, 10) || null;
       data.os = os;
-      if (webkit && webkit.length === 4) {
+      if (webkit && webkit.length >= 3) {
         data.webkit = {
           major: parseInt(webkit[1], 10),
           minor: parseInt(webkit[2], 10),
-          patch: parseInt(webkit[3], 10)
+          patch: webkit[3] ? parseInt(webkit[3], 10) : undefined
         };
       }
     }
