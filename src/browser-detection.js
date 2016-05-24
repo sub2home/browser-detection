@@ -24,6 +24,7 @@
     var browser = null;
     var version = null;
     var os = null;
+    var webkit = null;
 
     parseUserAgent();
 
@@ -52,12 +53,21 @@
       if (osParts && osParts.length > 1) {
         os = osParts[1];
       }
+
+      webkit = navigator.userAgent.toLowerCase().match(/webkit\/(\d+)\.(\d+)\.(\d+)/);
     }
 
     function prepareData() {
       data.browser = browser;
       data.version = parseInt(version, 10) || null;
       data.os = os;
+      if (webkit && webkit.length === 4) {
+        data.webkit = {
+          major: parseInt(webkit[1], 10),
+          minor: parseInt(webkit[2], 10),
+          patch: parseInt(webkit[3], 10)
+        };
+      }
     }
 
     function renameOsx() {
