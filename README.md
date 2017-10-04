@@ -5,7 +5,7 @@ Lightweight package to get information about browser, version and OS.
 
 ## Installation
 ```sh
-$ bower install browserdetection --save
+$ bower install git://github.com/franklang/browser-detection --save-dev
 ```
 
 ## Usage
