@@ -20,7 +20,7 @@ console.log(data.os); // osx
 
 #### Possible values
 
-* **data.browser:** `ie`, `chrome`, `firefox`, `safari`, `opera`
+* **data.browser:** `edge`, `ie`, `chrome`, `firefox`, `safari`, `opera`
 * **data.version:** *depends on the browser*
 * **data.os:** `mac`, `win`, `linux`, `freebsd`, `mobile`, `iphone`, `ipod`, `ipad`, `android`, `blackberry`, `j2me`, `webtv`
 
