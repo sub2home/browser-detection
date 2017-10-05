@@ -39,13 +39,17 @@
 
     function parseUserAgent() {
       var userAgent = navigator.userAgent.toLowerCase(),
-        browserParts = /(ie|firefox|chrome|safari|opera)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent),
+        browserParts = /(ie|firefox|chrome|safari|opera|edge)(?:.*version)?(?:[ \/])?([\w.]+)/.exec(userAgent),
         osParts = /(mac|win|linux|freebsd|mobile|iphone|ipod|ipad|android|blackberry|j2me|webtv)/.exec(userAgent);
 
       if ( !! userAgent.match(/trident\/7\./)) {
         browser = "ie";
         version = 11;
-      } else if (browserParts && browserParts.length > 2) {
+      } else if ( !! userAgent.match(/edge\/\d+/)) {
+        browserParts = /(edge)\/([\w.]+)/.exec(userAgent),
+        browser = browserParts[1];
+        version = browserParts[2];
+      }else if (browserParts && browserParts.length > 2) {
         browser = browserParts[1];
         version = browserParts[2];
       }
