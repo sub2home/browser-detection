@@ -1,7 +1,7 @@
 browser-detection [![Build Status](https://travis-ci.org/sub2home/browser-detection.png?branch=master)](https://travis-ci.org/sub2home/browser-detection)
 ========================
 
-Lightweight package to get information about browser, version and OS.
+Lightweight package to get information about browser, version and OS. Now supporting Edge browsers.
 
 ## Installation
 ```sh
