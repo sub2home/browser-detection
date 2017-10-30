@@ -90,7 +90,7 @@
       options = options || {};
 
       if (options.addClasses && data.os && data.browser && data.version) {
-        document.body.parentNode.className += ' ' + data.os + ' ' + data.browser + ' ' + data.browser + '-' + data.version;
+        document.body.parentNode.classList.add(data.os, data.browser, data.browser, data.version);
       }
     }
 
